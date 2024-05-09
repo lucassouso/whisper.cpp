@@ -67,13 +67,13 @@ struct whisper_params {
     bool verbose_prompt = false;
     bool use_gpu        = true;
 
-    std::string person      = "Georgi";
+    std::string person      = "Lucas";
     std::string bot_name    = "LLaMA";
     std::string wake_cmd    = "";
     std::string heard_ok    = "";
-    std::string language    = "en";
-    std::string model_wsp   = "models/ggml-base.en.bin";
-    std::string model_llama = "models/ggml-llama-7B.bin";
+    std::string language    = "pt";
+    std::string model_wsp   = "models/ggml-large-v3-q5_0";
+    std::string model_llama = "/home/lucasai/openbio/OpenBioLLM-Llama3-70B.i1-Q4_K_M.gguf";
     std::string speak       = "./examples/talk-llama/speak";
     std::string speak_file  = "./examples/talk-llama/to_speak.txt";
     std::string prompt      = "";
@@ -316,8 +316,8 @@ int main(int argc, char ** argv) {
         fprintf(stderr, "\n");
 
         if (!whisper_is_multilingual(ctx_wsp)) {
-            if (params.language != "en" || params.translate) {
-                params.language = "en";
+            if (params.language != "pt" || params.translate) {
+                params.language = "pt";
                 params.translate = false;
                 fprintf(stderr, "%s: WARNING: model is not multilingual, ignoring language and translation options\n", __func__);
             }
